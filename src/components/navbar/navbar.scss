@@ -1,0 +1,46 @@
+.navbar {
+  position: fixed;
+  background-color: rgb(18, 19, 24);
+  height: 30px;
+  width: 100%;
+  z-index: 99;
+
+  .wrapper {
+    max-width: 1366px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      position: absolute;
+      top: 25px;
+    }
+
+    .navigation {
+      width: 80%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.6rem;
+      font-weight: normal;
+      gap: 10px;
+
+      .nav-item {
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .dot {
+          width: 2px;
+          height: 2px;
+          border-radius: 50%;
+          background-color: rgb(140, 155, 210);
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+}

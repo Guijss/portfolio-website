@@ -1,0 +1,49 @@
+.hero {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 40px);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .hero-content {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  span {
+    display: block;
+    color: rgb(140, 155, 210);
+    font-size: 0.5rem;
+    letter-spacing: 0.2rem;
+  }
+
+  h1 {
+    display: block;
+    color: rgb(140, 188, 210);
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+  }
+
+  h2 {
+    display: block;
+    color: rgb(140, 155, 210);
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0.2rem;
+  }
+
+  p {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+}

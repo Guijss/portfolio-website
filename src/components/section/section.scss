@@ -1,0 +1,41 @@
+.section {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 30px);
+  bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  .content {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+      display: block;
+      font-size: 4rem;
+      font-weight: bold;
+      color: rgb(140, 155, 210);
+      writing-mode: vertical-rl;
+      text-orientation: sideways;
+    }
+
+    .line {
+      background-color: #f4ebd0;
+      border-right: 1px solid #f4ebd0;
+      width: 0;
+      height: 90%;
+    }
+  }
+}
