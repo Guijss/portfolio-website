@@ -1,6 +1,7 @@
 import './navbar.scss';
 import { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import Logo from './Logo';
 
 const navigationVariants = {
   animate: {
@@ -32,15 +33,23 @@ const Navbar = ({ refArr }) => {
   const [selectedSection, setSelectedSection] = useState('Home');
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest <= refArr[0].ref.current.offsetTop + 10) {
-      setSelectedSection('Home');
-    } else if (latest <= refArr[1].ref.current.offsetTop + 10) {
-      setSelectedSection('About');
-    } else if (latest <= refArr[2].ref.current.offsetTop + 10) {
-      setSelectedSection('Projects');
-    } else {
+    const about = refArr[1].ref.current;
+    const projects = refArr[2].ref.current;
+    const contact = refArr[3].ref.current;
+
+    if (latest >= contact.offsetTop - 10) {
       setSelectedSection('Contact');
+      return;
     }
+    if (latest >= projects.offsetTop - 10) {
+      setSelectedSection('Projects');
+      return;
+    }
+    if (latest >= about.offsetTop - 10) {
+      setSelectedSection('About');
+      return;
+    }
+    setSelectedSection('Home');
   });
 
   return (
@@ -48,14 +57,11 @@ const Navbar = ({ refArr }) => {
       className="navbar"
       animate={{
         height: selectedSection === 'Home' ? '40px' : '30px',
-        boxShadow:
-          selectedSection !== 'Home'
-            ? '0px 0px 10px 0px rgba(0, 0, 0, 0.75)'
-            : '0px 0px 10px 0px rgba(0, 0, 0, 0)',
-        backgroundColor:
-          selectedSection === 'Home' ? 'rgb(18, 19, 24)' : 'rgb(17, 17, 22)',
       }}
     >
+      <div className="logo">
+        <Logo />
+      </div>
       <div className="wrapper">
         <motion.div
           className="navigation"

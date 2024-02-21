@@ -1,21 +1,25 @@
 .navbar {
   position: fixed;
   background-color: rgb(18, 19, 24);
-  height: 30px;
   width: 100%;
   z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  .logo {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+  }
   .wrapper {
-    max-width: 1366px;
+    position: absolute;
+    right: 5%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    .logo {
-      position: absolute;
-      top: 25px;
-    }
 
     .navigation {
       width: 80%;

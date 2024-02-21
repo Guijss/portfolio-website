@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 import './app.scss';
 import Navbar from './components/navbar/Navbar';
-import Projects from './components/projects/Projects';
 import Section from './components/section/Section';
 import Hero from './components/hero/Hero';
 import About from './components/about/About';
+import Projects from './components/projects/Projects';
 
 function App() {
   const homeRef = useRef(null);
@@ -18,6 +18,21 @@ function App() {
     { ref: projectsRef, name: 'Projects' },
     { ref: contactRef, name: 'Contact' },
   ]);
+
+  useEffect(() => {
+    const handleWheel = (e) => {
+      e.preventDefault();
+      window.scrollBy({
+        top: e.deltaY,
+        behavior: 'smooth',
+      });
+    };
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel, { passive: false });
+    };
+  }, []);
 
   useEffect(() => {
     setRefArr([

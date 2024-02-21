@@ -30,7 +30,22 @@ const ResetButton = ({ reset }) => {
       }}
       whileTap={{ scale: 0.9 }}
     >
-      <TbReload style={{ width: '70%', height: '70%' }} />
+      <motion.div
+        className="rotator"
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        whileHover={{
+          rotate: 360,
+        }}
+        transition={{ type: 'spring' }}
+      >
+        <TbReload style={{ width: '70%', height: '70%' }} />
+      </motion.div>
     </motion.div>
   );
 };
