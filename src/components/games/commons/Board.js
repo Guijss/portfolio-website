@@ -3,19 +3,11 @@ import { motion } from 'framer-motion';
 const boardStyle = {
   position: 'relative',
   width: '200px',
+  minWidth: '200px',
   backgroundColor: 'rgb(18, 19, 24)',
   aspectRatio: '1/1',
   borderRadius: '10px',
   border: '5px solid #8d8776',
-};
-
-const gridStyle = {
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  alignItems: 'center',
-  flexWrap: 'wrap',
 };
 
 const Board = ({ children, gameOver }) => {

@@ -2,11 +2,39 @@ import './slideShow.scss';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
+import Project from './Project';
 
 const slides = [
-  { id: 0, color: 'gray', offset: 0 },
-  { id: 1, color: 'green', offset: 100 },
-  { id: 2, color: 'blue', offset: 200 },
+  {
+    id: 0,
+    offset: 0,
+    project: {
+      img: '',
+      title: 'Cross Constructor',
+      text: '',
+      techs: ['React', 'Styled Components', 'Framer Motion'],
+    },
+  },
+  {
+    id: 1,
+    offset: 100,
+    project: {
+      img: '',
+      title: 'Cor',
+      text: '',
+      techs: ['React', 'Framer Motion', 'scss'],
+    },
+  },
+  {
+    id: 2,
+    offset: 200,
+    project: {
+      img: '',
+      title: 'Creative Coding',
+      text: '',
+      techs: ['React', 'P5js', 'React Router'],
+    },
+  },
 ];
 
 const buttonVariants = {
@@ -22,8 +50,15 @@ const buttonVariants = {
 const SlideShow = () => {
   const [inViewElemente, setInViewElemente] = useState(0);
 
-  const handleSlide = (index) => {
-    setInViewElemente(Math.max(0, Math.min(index, slides.length - 1)));
+  const handleSlide = (dir) => {
+    setInViewElemente((prev) => {
+      if (prev + dir < 0) {
+        return slides.length - 1;
+      } else if (prev + dir > slides.length - 1) {
+        return 0;
+      }
+      return prev + dir;
+    });
   };
 
   return (
@@ -32,17 +67,18 @@ const SlideShow = () => {
         <motion.div
           key={e.id}
           className="slide"
-          //   style={{ backgroundColor: e.color }}
           initial={false}
           animate={{ x: `${e.offset - slides[inViewElemente].offset}%` }}
           transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        ></motion.div>
+        >
+          <Project project={e.project} />
+        </motion.div>
       ))}
       <motion.div className="button-container" initial="initial">
         <motion.div
           className="button"
           style={{ left: '1rem' }}
-          onClick={() => handleSlide(inViewElemente - 1)}
+          onClick={() => handleSlide(-1)}
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
@@ -52,7 +88,7 @@ const SlideShow = () => {
         <motion.div
           className="button"
           style={{ right: '1rem' }}
-          onClick={() => handleSlide(inViewElemente + 1)}
+          onClick={() => handleSlide(1)}
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
