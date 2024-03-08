@@ -1,0 +1,23 @@
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+
+  .rotator {
+    position: relative;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle {
+      position: absolute;
+      background-color: rgb(140, 155, 210);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      right: 2px;
+    }
+  }
+}

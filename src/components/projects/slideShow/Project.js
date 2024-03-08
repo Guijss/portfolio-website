@@ -37,8 +37,8 @@ const Project = ({ project }) => {
         <div className="text-container">
           <div className="text"></div>
           <div className="technologies">
-            {project.techs.map((e) => (
-              <span>{e}</span>
+            {project.techs.map((e, i) => (
+              <span key={i}>{e}</span>
             ))}
           </div>
         </div>

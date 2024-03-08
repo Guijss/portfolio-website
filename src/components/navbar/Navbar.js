@@ -31,6 +31,7 @@ const Navbar = ({ refArr }) => {
   const { scrollY } = useScroll(0);
 
   const [selectedSection, setSelectedSection] = useState('Home');
+  const [sliderPos, setSliderPos] = useState(5);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const about = refArr[1].ref.current;
@@ -39,17 +40,21 @@ const Navbar = ({ refArr }) => {
 
     if (latest >= contact.offsetTop - 10) {
       setSelectedSection('Contact');
+      setSliderPos(55 * 3 + 5);
       return;
     }
     if (latest >= projects.offsetTop - 10) {
       setSelectedSection('Projects');
+      setSliderPos(55 * 2 + 5);
       return;
     }
     if (latest >= about.offsetTop - 10) {
       setSelectedSection('About');
+      setSliderPos(55 * 1 + 5);
       return;
     }
     setSelectedSection('Home');
+    setSliderPos(5);
   });
 
   return (
@@ -71,14 +76,21 @@ const Navbar = ({ refArr }) => {
         >
           {arr.map((el, i) => (
             <motion.div key={i} className="nav-item" variants={navitemVariants}>
-              <motion.div
+              {/* <motion.div
                 className="dot"
                 animate={{ opacity: el === selectedSection ? 1 : 0 }}
                 transition={{ type: 'tween', dutaion: 1 }}
-              ></motion.div>
+              ></motion.div> */}
               <a href={`#${el}`}>{el}</a>
             </motion.div>
           ))}
+          <motion.div
+            className="slider-bar"
+            animate={{
+              x: sliderPos,
+              transition: { duration: 0.2 },
+            }}
+          ></motion.div>
         </motion.div>
       </div>
     </motion.div>

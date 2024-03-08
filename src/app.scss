@@ -1,6 +1,20 @@
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background-color: rgb(9, 10, 15);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgb(140, 155, 210);
+  }
 }
 
 * {

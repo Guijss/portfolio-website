@@ -1,93 +1,93 @@
 import './backdrop.scss';
 import { useState, useEffect, useRef } from 'react';
 
-const rows = 9;
-const cols = 16;
+const cellSize = 50;
+const animationInterval = 1;
 
 const Backdrop = ({ heroRef }) => {
-  const ref = useRef(null);
-  const [backdropSize, setBackdropSize] = useState({ x: 0, y: 0 });
-  const [cellSize, setCellSize] = useState({ x: 0, y: 0 });
+  const interval = useRef(null);
+  const backdropRef = useRef(null);
+  const gridRef = useRef(null);
+  const isAnimating = useRef(false);
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const cellColor = (x, y) => {
-    const normalizedX = (255 / cols) * x;
-    const normalizedY = (255 / rows) * y;
-    const normalizedMousePos = {
-      x: Math.floor(mousePos.x / cellSize.x),
-      y: Math.floor((mousePos.y - 40) / cellSize.y),
-    };
-    const r = 255 - normalizedX;
-    const g = 255 - normalizedY;
-    const b = normalizedX;
-    const maxDistSq = cols * cols; //cols * cols + rows * rows;
-
-    const distSq =
-      (normalizedMousePos.x - x) * (normalizedMousePos.x - x) +
-      (normalizedMousePos.y - y) * (normalizedMousePos.y - y);
-    const a = Math.max((1 - distSq / maxDistSq) * 0.2, 0.01);
-    return `rgba(${r}, ${g}, ${b}, ${a})`;
-  };
+  const [grid, setGrid] = useState([]);
+  const [gridSize, setGridSize] = useState({ cols: 0, rows: 0 });
 
   useEffect(() => {
+    const localBackdropRef = backdropRef.current;
+    const localGridRef = gridRef.current;
     const handleMouseMove = (event) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
-
-    const handleResize = () => {
-      setBackdropSize({ x: localRef.clientWidth, y: localRef.clientHeight });
-      setCellSize({
-        x: localRef.clientWidth / cols,
-        y: localRef.clientHeight / rows,
+      setMousePos({
+        x: event.clientX - localGridRef.offsetLeft,
+        y: event.clientY - localGridRef.offsetTop - heroRef.current.offsetTop,
       });
     };
 
-    let localHeroRef = null;
-    if (heroRef.current) {
-      localHeroRef = heroRef.current;
-    }
-    //mouse position stuff.
-    localHeroRef.addEventListener('mousemove', handleMouseMove);
+    const handleResize = () => {
+      const cols = Math.floor(localBackdropRef.clientWidth / cellSize);
+      const rows = Math.floor(localBackdropRef.clientHeight / cellSize);
+      setGrid([...Array(cols * rows)].map((_, i) => (i === 0 ? 0 : 1)));
+      setGridSize({ cols: cols, rows: rows });
+    };
 
-    let localRef = null;
-    if (ref.current) {
-      localRef = ref.current;
-    }
+    //mouse position stuff.
+    window.addEventListener('mousemove', handleMouseMove);
+
     //calculating grid sizes.
     window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => {
-      localHeroRef.removeEventListener('mousemove', handleMouseMove);
-      localRef.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, [heroRef]);
 
+  const handleMouseOver = () => {
+    const localBackdropRef = backdropRef.current;
+    interval.current = setInterval(() => {
+      let emptyCell = 0;
+      for (let i = 0; i < grid.length; i++) {
+        if (grid[i] === 0) {
+          emptyCell = i;
+          break;
+        }
+      }
+      const cols = Math.floor(localBackdropRef.clientWidth / cellSize);
+      const rows = Math.floor(localBackdropRef.clientHeight / cellSize);
+      const emptyX = emptyCell % cols;
+      const emptyY = Math.floor(emptyCell / rows);
+      const mouseX = Math.floor(mousePos.x / cellSize);
+      const mouseY = Math.floor(mousePos.y / cellSize);
+      console.log(mousePos);
+      // console.log(mouseX, mouseY);
+    }, animationInterval * 1000);
+  };
+
+  const handleMouseOut = () => {
+    clearInterval(interval.current);
+  };
+
   return (
-    <div className="backdrop" ref={ref}>
-      <div className="hero-grid">
-        {[...Array(rows)].map((e, y) => {
-          return (
-            <div
-              className="hero-row"
-              key={y}
-              style={{ height: backdropSize.y / rows - 4 }}
-            >
-              {[...Array(cols)].map((e, x) => {
-                return (
-                  <div
-                    className="hero-cell"
-                    key={`${x}${y}`}
-                    style={{
-                      width: backdropSize.x / cols - 4,
-                      backgroundColor: cellColor(x, y),
-                    }}
-                  ></div>
-                );
-              })}
-            </div>
-          );
-        })}
+    <div className="backdrop" ref={backdropRef}>
+      <div
+        className="hero-grid"
+        style={{
+          width: gridSize.cols * cellSize,
+          height: gridSize.rows * cellSize,
+        }}
+        ref={gridRef}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        {grid.map((e, i) => (
+          <div
+            key={i}
+            className={e === 0 ? 'empty-cell' : 'hero-cell'}
+            style={{ width: cellSize, height: cellSize }}
+          ></div>
+        ))}
       </div>
     </div>
   );

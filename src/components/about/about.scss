@@ -2,6 +2,39 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  overflow: hidden;
+
+  .wrapper {
+    width: 80%;
+    height: 90%;
+    min-width: 700px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .about-text {
+      height: 100%;
+      flex: 1;
+      font-size: 0.7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .text {
+        padding: 4rem;
+        white-space: wrap;
+      }
+    }
+
+    .game {
+      height: 100%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
