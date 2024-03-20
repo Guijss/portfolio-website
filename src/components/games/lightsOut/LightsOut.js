@@ -79,7 +79,7 @@ const LightsOut = () => {
           <div
             className="lights-row"
             key={x}
-            style={{ height: 250 / (gridSize + 2) }}
+            style={{ height: 275 / gridSize }}
           >
             {ex.map((ey, y) => {
               return (
@@ -88,7 +88,8 @@ const LightsOut = () => {
                   key={`${x}${y}`}
                   onClick={() => (gameOver ? null : switchCell(x, y))}
                   style={{
-                    width: 250 / (gridSize + 2.2),
+                    width: 275 / gridSize,
+                    height: '100%',
                     border: ey ? '2px solid transparent' : '2px solid #8d8776',
                   }}
                   animate={{

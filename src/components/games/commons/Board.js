@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 
 const boardStyle = {
   position: 'relative',
-  width: '200px',
-  minWidth: '200px',
+  width: '300px',
+  minWidth: '300px',
   backgroundColor: 'rgb(18, 19, 24)',
   aspectRatio: '1/1',
   borderRadius: '10px',

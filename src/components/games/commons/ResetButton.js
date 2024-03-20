@@ -3,8 +3,8 @@ import { TbReload } from 'react-icons/tb';
 
 const buttomStyle = {
   position: 'absolute',
-  width: 'calc(200px / 7)',
-  right: 'calc(-200px / 5.5)',
+  width: 'calc(300px / 7)',
+  right: 'calc(-300px / 5.5)',
   bottom: '-4px',
   display: 'flex',
   justifyContent: 'center',

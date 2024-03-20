@@ -10,9 +10,11 @@ const slides = [
     offset: 0,
     project: {
       img: '',
+      imgDir: 1,
       title: 'Cross Constructor',
-      text: '',
-      techs: ['React', 'Styled Components', 'Framer Motion'],
+      text: 'A web app that lets you make your own crossword puzzles. You can pick a grid size of either 15x15 or 21x21, choose your grid design, and then start adding words and their respective clues.',
+      techs: ['React', 'Framer Motion', 'Scss'],
+      url: 'https://guijss.github.io/cross-constructor/',
     },
   },
   {
@@ -20,9 +22,11 @@ const slides = [
     offset: 100,
     project: {
       img: '',
+      imgDir: -1,
       title: 'Cor',
-      text: '',
-      techs: ['React', 'Framer Motion', 'scss'],
+      text: 'A web app designed to aid users in generating color themes effortlessly. Begin by selecting a main color, and the app will provide you with complementary color suggestions, creating a harmonious color scheme tailored to your choice.',
+      techs: ['React', 'Styled Components', 'Framer Motion'],
+      url: 'https://guijss.github.io/cor/',
     },
   },
   {
@@ -30,9 +34,23 @@ const slides = [
     offset: 200,
     project: {
       img: '',
+      imgDir: 1,
+      title: 'World Cup Tracker',
+      text: 'A tracker designed for users to follow or predict the outcomes of the 2022 FIFA World Cup. This app will receive updates for upcoming World Cups.',
+      techs: ['React', 'Styled Components', 'React Router'],
+      url: 'https://guijss.github.io/worldCupTracker/',
+    },
+  },
+  {
+    id: 3,
+    offset: 300,
+    project: {
+      img: '',
+      imgDir: -1,
       title: 'Creative Coding',
-      text: '',
+      text: 'Explore a compilation of my creative coding projects developed over the years. Each project, predominantly crafted with p5.js, a library built upon the canvas API.',
       techs: ['React', 'P5js', 'React Router'],
+      url: 'https://guijss.github.io/my-sketches/',
     },
   },
 ];

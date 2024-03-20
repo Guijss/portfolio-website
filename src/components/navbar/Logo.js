@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 function Logo(props) {
   return (
     <motion.svg
-      width={30}
-      height={30}
+      width={50}
+      height={50}
       viewBox="0 0 13.229166 13.229167"
       xmlns="http://www.w3.org/2000/svg"
       {...props}

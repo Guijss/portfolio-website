@@ -31,7 +31,7 @@ const Navbar = ({ refArr }) => {
   const { scrollY } = useScroll(0);
 
   const [selectedSection, setSelectedSection] = useState('Home');
-  const [sliderPos, setSliderPos] = useState(5);
+  const [sliderPos, setSliderPos] = useState(10);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const about = refArr[1].ref.current;
@@ -40,29 +40,29 @@ const Navbar = ({ refArr }) => {
 
     if (latest >= contact.offsetTop - 10) {
       setSelectedSection('Contact');
-      setSliderPos(55 * 3 + 5);
+      setSliderPos(80 * 3 + 10);
       return;
     }
     if (latest >= projects.offsetTop - 10) {
       setSelectedSection('Projects');
-      setSliderPos(55 * 2 + 5);
+      setSliderPos(80 * 2 + 10);
       return;
     }
     if (latest >= about.offsetTop - 10) {
       setSelectedSection('About');
-      setSliderPos(55 * 1 + 5);
+      setSliderPos(80 * 1 + 10);
       return;
     }
     setSelectedSection('Home');
-    setSliderPos(5);
+    setSliderPos(10);
   });
 
   return (
     <motion.div
       className="navbar"
-      animate={{
-        height: selectedSection === 'Home' ? '40px' : '30px',
-      }}
+      // animate={{
+      //   height: selectedSection === 'Home' ? '40px' : '30px',
+      // }}
     >
       <div className="logo">
         <Logo />
@@ -76,11 +76,6 @@ const Navbar = ({ refArr }) => {
         >
           {arr.map((el, i) => (
             <motion.div key={i} className="nav-item" variants={navitemVariants}>
-              {/* <motion.div
-                className="dot"
-                animate={{ opacity: el === selectedSection ? 1 : 0 }}
-                transition={{ type: 'tween', dutaion: 1 }}
-              ></motion.div> */}
               <a href={`#${el}`}>{el}</a>
             </motion.div>
           ))}

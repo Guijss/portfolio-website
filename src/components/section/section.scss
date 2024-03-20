@@ -1,7 +1,7 @@
 .section {
   position: absolute;
   width: 100%;
-  height: calc(100% - 30px);
+  height: calc(100% - 60px);
   bottom: 0;
   display: flex;
   justify-content: flex-start;
@@ -17,7 +17,7 @@
 
     h1 {
       display: block;
-      font-size: 4rem;
+      font-size: 7rem;
       font-weight: bold;
       color: rgb(140, 155, 210);
       writing-mode: vertical-rl;

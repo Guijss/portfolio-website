@@ -33,9 +33,23 @@ const Project = ({ project }) => {
         {project.title}
       </div>
       <div className="info">
-        <div className="img-container"></div>
-        <div className="text-container">
-          <div className="text"></div>
+        <div
+          className="img-container"
+          style={{ transform: `translateX(${project.imgDir * 35}%)` }}
+        ></div>
+        <div
+          className="text-container"
+          style={{
+            transform: `translate(${-project.imgDir * 60}%, ${
+              -project.imgDir * 10
+            }%)`,
+          }}
+        >
+          <div className="text">{project.text}</div>
+          <a href={project.url} target="_blank" rel="noreferrer">
+            <div className="demo-button">Check it out!</div>
+          </a>
+
           <div className="technologies">
             {project.techs.map((e, i) => (
               <span key={i}>{e}</span>

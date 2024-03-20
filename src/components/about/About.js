@@ -7,19 +7,20 @@ const About = () => {
       <div className="wrapper">
         <div className="about-text">
           <div className="text">
-            Hello! My name is Gui Silva and I enjoy making stuff for the
-            internet. I'm a React front-end developer with a background in
-            mechanical engineering.
+            Hello! I'm Gui Silva, and I have a passion for creating content for
+            the internet. As a React front-end developer with a background in
+            mechanical engineering, my journey into JavaScript began with
+            creative coding using p5.js. This experience sparked my interest in
+            web development, and I quickly discovered that React was the
+            framework I wanted to focus on to enhance and refine my skills.
             <br />
             <br />
-            I was first introduced to coding back in 2015 with . Proficient in
-            HTML, CSS, and JavaScript, I enjoy staying at the forefront of
-            front-end technologies.
+            Outside of coding, I enjoy spending my time either playing music or
+            engaging in gaming sessions with my friends.
             <br />
             <br />
-            When not coding, you'll find me strumming the strings of my guitar,
-            weaving creativity into my daily life. Let's embark on this digital
-            adventure together, where engineering meets elegance.
+            Now that you're here, why not join in and play that game over there?
+            ➡️
           </div>
         </div>
         <div className="game">
