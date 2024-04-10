@@ -3,13 +3,17 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
 import Project from './Project';
+import crossImg from '../../../assets/cross-constructor.png';
+import cor from '../../../assets/cor.png';
+import worldCup from '../../../assets/worldcup.png';
+import creative from '../../../assets/creative.png';
 
 const slides = [
   {
     id: 0,
     offset: 0,
     project: {
-      img: '',
+      img: crossImg,
       imgDir: 1,
       title: 'Cross Constructor',
       text: 'A web app that lets you make your own crossword puzzles. You can pick a grid size of either 15x15 or 21x21, choose your grid design, and then start adding words and their respective clues.',
@@ -21,7 +25,7 @@ const slides = [
     id: 1,
     offset: 100,
     project: {
-      img: '',
+      img: cor,
       imgDir: -1,
       title: 'Cor',
       text: 'A web app designed to aid users in generating color themes effortlessly. Begin by selecting a main color, and the app will provide you with complementary color suggestions, creating a harmonious color scheme tailored to your choice.',
@@ -33,7 +37,7 @@ const slides = [
     id: 2,
     offset: 200,
     project: {
-      img: '',
+      img: worldCup,
       imgDir: 1,
       title: 'World Cup Tracker',
       text: 'A tracker designed for users to follow or predict the outcomes of the 2022 FIFA World Cup. This app will receive updates for upcoming World Cups.',
@@ -45,7 +49,7 @@ const slides = [
     id: 3,
     offset: 300,
     project: {
-      img: '',
+      img: creative,
       imgDir: -1,
       title: 'Creative Coding',
       text: 'Explore a compilation of my creative coding projects developed over the years. Each project, predominantly crafted with p5.js, a library built upon the canvas API.',

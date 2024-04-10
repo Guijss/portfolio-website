@@ -3,9 +3,15 @@ import { useState, useEffect, useCallback } from 'react';
 import ResetButton from '../commons/ResetButton';
 import Board from '../commons/Board';
 import { motion } from 'framer-motion';
+import Info from '../commons/Info';
 
 const gridSize = 5;
 const minMoves = 5;
+
+const infoText = {
+  name: 'Lights Out',
+  text: 'Whenever you click on a cell, the cell itself and all its orthogonal neighbors switch their states (lights on or off). Try to turn the whole board off.',
+};
 
 const LightsOut = () => {
   const [gridArr, setGridArr] = useState(
@@ -72,6 +78,7 @@ const LightsOut = () => {
 
   return (
     <Board gameOver={gameOver}>
+      <Info text={infoText} />
       <ResetButton reset={resetBoard} />
 
       {gridArr.map((ex, x) => {

@@ -3,9 +3,15 @@ import ResetButton from '../commons/ResetButton';
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Board from '../commons/Board';
+import Info from '../commons/Info';
 
 const gridSize = 4;
 const minMoves = 50;
+
+const infoText = {
+  name: 'Fifteen Slide',
+  text: 'Click the cells neighboring the empty spot to move them. Try to order the cells from 1 to 15 left to right, top to bottom.',
+};
 
 const FifteenSlide = () => {
   const [openCell, setOpenCell] = useState(gridSize * gridSize - 1);
@@ -87,8 +93,8 @@ const FifteenSlide = () => {
 
   return (
     <Board gameOver={gameOver}>
+      <Info text={infoText} />
       <ResetButton reset={resetBoard} />
-      {/* <div className="slide-grid"> */}
       {gridArr.map((e, i) => (
         <motion.div
           className="slide-cell"
@@ -126,7 +132,6 @@ const FifteenSlide = () => {
           {e + 1}
         </motion.div>
       ))}
-      {/* </div> */}
     </Board>
   );
 };

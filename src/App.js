@@ -5,6 +5,7 @@ import Section from './components/section/Section';
 import Hero from './components/hero/Hero';
 import About from './components/about/About';
 import Projects from './components/projects/Projects';
+import Contact from './components/contact/Contact';
 
 function App() {
   const homeRef = useRef(null);
@@ -21,6 +22,9 @@ function App() {
 
   useEffect(() => {
     const handleWheel = (e) => {
+      if (e.ctrlKey) {
+        return;
+      }
       e.preventDefault();
       window.scrollBy({
         top: e.deltaY,
@@ -60,7 +64,9 @@ function App() {
         </Section>
       </section>
       <section id="Contact" ref={contactRef}>
-        <Section flexDirection="row" title="Get In Touch!" />
+        <Section flexDirection="row" title="Get In Touch!">
+          <Contact />
+        </Section>
       </section>
     </div>
   );

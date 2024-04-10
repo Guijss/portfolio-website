@@ -9,6 +9,11 @@ import { useState } from 'react';
 const gridSize = 10;
 const numMines = 12;
 
+const infoText = {
+  name: 'Mines',
+  text: 'Classic Mine Sweeper. The number on each revealed cell represents the number of mines around that cell (diagonals included). Left click places a flag on unrevealed cell, right click reveals it.',
+};
+
 const cellStyle = (i, isRevealed) => {
   return {
     width: `${100 / gridSize}%`,
@@ -17,11 +22,9 @@ const cellStyle = (i, isRevealed) => {
     borderBottomLeftRadius: i === gridSize * gridSize - gridSize ? '4px' : 0,
     borderBottomRightRadius: i === gridSize * gridSize - 1 ? '4px' : 0,
     border: isRevealed ? '1px solid #8d8776' : '1px solid rgb(18, 19, 24)',
-    backgroundColor: isRevealed ? 'rgb(18, 19, 24)' : '#8d8776',
+    backgroundColor: isRevealed ? 'rgb(18, 19, 24)' : 'rgb(140, 155, 210)',
   };
 };
-
-const infoText = '';
 
 const Mines = () => {
   const [gridArr, setGridArr] = useState([

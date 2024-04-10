@@ -1,0 +1,47 @@
+.contact {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .game {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form {
+    flex-grow: 0.6;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input,
+      textarea {
+        padding: 20px;
+        background-color: transparent;
+        border: 1px solid #f4ebd0;
+        color: #f4ebd0;
+        border-radius: 5px;
+        resize: none;
+        box-sizing: border-box;
+        outline: none;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 20px;
+        border: none;
+        background-color: rgb(140, 155, 210);
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px;
+      }
+    }
+  }
+}

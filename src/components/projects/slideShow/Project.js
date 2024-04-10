@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Project = ({ project }) => {
   const titleRef = useRef();
@@ -36,20 +37,39 @@ const Project = ({ project }) => {
         <div
           className="img-container"
           style={{ transform: `translateX(${project.imgDir * 35}%)` }}
-        ></div>
+        >
+          <a
+            className="a-tag"
+            href={project.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={project.img}></img>
+          </a>
+        </div>
         <div
           className="text-container"
           style={{
             transform: `translate(${-project.imgDir * 60}%, ${
-              -project.imgDir * 10
-            }%)`,
+              -project.imgDir * 0
+            }px)`,
           }}
         >
           <div className="text">{project.text}</div>
-          <a href={project.url} target="_blank" rel="noreferrer">
-            <div className="demo-button">Check it out!</div>
+          <a
+            className="a-tag"
+            href={project.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <motion.div
+              className="demo-button"
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
+            >
+              Check it out!
+            </motion.div>
           </a>
-
           <div className="technologies">
             {project.techs.map((e, i) => (
               <span key={i}>{e}</span>

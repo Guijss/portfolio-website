@@ -1,25 +1,6 @@
 import { FaInfoCircle } from 'react-icons/fa';
 import { useState } from 'react';
-
-const infoStyle = {
-  position: 'absolute',
-  right: '-20px',
-  top: 0,
-  cursor: 'pointer',
-};
-
-const modalStyle = {
-  position: 'absolute',
-  width: '150px',
-  top: '-4px',
-  right: '10px',
-  borderRadius: '10px',
-  border: '2px solid #8d8776',
-  backgroundColor: 'rgb(18, 19, 24)',
-  lineHeight: '50%',
-  padding: '0.5rem',
-  zIndex: '10',
-};
+import './info.scss';
 
 const textStyle = {
   fontSize: '0.5rem',
@@ -30,16 +11,18 @@ const Info = ({ text }) => {
   return (
     <>
       {isHover && (
-        <div style={modalStyle}>
-          <span style={textStyle}>{text}</span>
+        <div className="modal">
+          <div className="name">{text.name}</div>
+          <div className="separator"></div>
+          <div className="text">{text.text}</div>
         </div>
       )}
       <div
-        style={infoStyle}
+        className="info"
         onMouseOver={() => setIsHover(true)}
         onMouseOut={() => setIsHover(false)}
       >
-        <FaInfoCircle size={14} />
+        <FaInfoCircle size={25} />
       </div>
     </>
   );

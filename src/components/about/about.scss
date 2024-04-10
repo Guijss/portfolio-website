@@ -26,8 +26,8 @@
       .text {
         padding: 4rem;
         white-space: wrap;
-        background-color: rgb(15, 16, 21);
-        border-radius: 2rem;
+        background-color: rgb(10, 11, 16);
+        border-radius: 3rem;
       }
     }
 
@@ -35,7 +35,7 @@
       height: 100%;
       flex: 1;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
     }
   }
