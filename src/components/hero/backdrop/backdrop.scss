@@ -15,11 +15,11 @@
     align-content: center;
 
     .hero-cell {
-      background-color: rgb(15, 16, 21);
-      border-left: 3px solid rgb(8, 9, 14);
-      border-bottom: 3px solid rgb(8, 9, 14);
-      border-top: 3px solid rgb(22, 23, 28);
-      border-right: 3px solid rgb(22, 23, 28);
+      background-color: rgb(30, 30, 32);
+      border-left: 5px solid rgb(40, 40, 40);
+      border-top: 5px solid rgb(40, 40, 40);
+      border-bottom: 5px solid rgb(20, 20, 20);
+      border-right: 5px solid rgb(20, 20, 20);
       pointer-events: none;
     }
   }
