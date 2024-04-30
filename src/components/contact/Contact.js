@@ -53,6 +53,14 @@ const Contact = () => {
       <div className="game">
         <Mines />
       </div>
+      <a
+        className="foot-note"
+        href="https://github.com/Guijss/portfolio-website"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div>Designed and coded by Gui Silva.</div>
+      </a>
     </div>
   );
 };
