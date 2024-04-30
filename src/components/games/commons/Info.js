@@ -2,10 +2,6 @@ import { FaInfoCircle } from 'react-icons/fa';
 import { useState } from 'react';
 import './info.scss';
 
-const textStyle = {
-  fontSize: '0.5rem',
-};
-
 const Info = ({ text }) => {
   const [isHover, setIsHover] = useState(false);
   return (

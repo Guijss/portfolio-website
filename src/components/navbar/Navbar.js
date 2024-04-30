@@ -30,7 +30,6 @@ const arr = ['Home', 'About', 'Projects', 'Contact'];
 const Navbar = ({ refArr }) => {
   const { scrollY } = useScroll(0);
 
-  const [selectedSection, setSelectedSection] = useState('Home');
   const [sliderPos, setSliderPos] = useState(10);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -39,31 +38,23 @@ const Navbar = ({ refArr }) => {
     const contact = refArr[3].ref.current;
 
     if (latest >= contact.offsetTop - 10) {
-      setSelectedSection('Contact');
       setSliderPos(80 * 3 + 10);
       return;
     }
     if (latest >= projects.offsetTop - 10) {
-      setSelectedSection('Projects');
       setSliderPos(80 * 2 + 10);
       return;
     }
     if (latest >= about.offsetTop - 10) {
-      setSelectedSection('About');
       setSliderPos(80 * 1 + 10);
       return;
     }
-    setSelectedSection('Home');
+
     setSliderPos(10);
   });
 
   return (
-    <motion.div
-      className="navbar"
-      // animate={{
-      //   height: selectedSection === 'Home' ? '40px' : '30px',
-      // }}
-    >
+    <motion.div className="navbar">
       <div className="logo">
         <Logo />
       </div>

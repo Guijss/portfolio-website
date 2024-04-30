@@ -44,7 +44,7 @@ const Project = ({ project }) => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={project.img}></img>
+            <img src={project.img} alt=""></img>
           </a>
         </div>
         <div
